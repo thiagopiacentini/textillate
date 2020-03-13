@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Textillate.js</title>
+  <link href="assets/animate.css" rel="stylesheet">
+  <link href="assets/style.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+  <body>
+    
+    <h1 class="nome">Thiago</h1>
+
+    <h2 class="sobrenome" data-in-effect="rollIn">Piacentini</h2>
+
+    <h1 class="tlt">
+      <ul class="texts">
+        <li data-out-effect="fadeOut" data-out-shuffle="true">Efeito com fadeOut e data-out-suffle=true</li>
+        <li data-in-effect="fadeIn">Efeito com fadeIn</li>
+      </ul>
+    </h1>
+
+
+<!-- https://github.com/jschr/textillate - referencia -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="assets/jquery.fittext.js"></script>
+<script src="assets/jquery.lettering.js"></script>
+<script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+<script src="jquery.textillate.js"></script>
+<script>
+  $('.nome, .sobrenome, .tlt').textillate({
+// o seletor padrão a ser usado ao detectar vários textos para animar
+  selector: '.texts',
+
+  // ativar looping
+  loop: true,
+
+// define o tempo mínimo de exibição de cada texto antes de ser substituído
+  minDisplayTime: 2000,
+
+// delay inicial - antes de iniciar a animação
+  // (observe que, dependendo do efeito, pode ser necessário aplicar manualmente
+  // visibilidade: oculta para o elemento antes de executar este plugin)
+  initialDelay: 0,
+
+// define se deve ou não iniciar automaticamente a animação
+  autoStart: true,
+
+// conjunto personalizado de efeitos 'in'. Isso afeta se o
+  // caractere é mostrado / oculto antes ou depois de uma animação
+  inEffects: [],
+
+// conjunto personalizado de efeitos 'out'
+  outEffects: [ 'hinge' ],
+
+// nas configurações de animação
+  in: {
+// define o nome do efeito
+    effect: 'fadeInLeftBig',
+
+// define o fator de atraso aplicado a cada caractere consecutivo
+    delayScale: 1.5,
+
+// define o atraso entre cada caractere
+    delay: 50,
+
+// definido como true para animar todos os caracteres ao mesmo tempo
+    sync: false,
+
+    // randomize the character sequence
+    // (note that shuffle doesn't make sense with sync = true)
+    shuffle: false,
+
+    // inverte a sequência de caracteres
+        // (observe que reverse não faz sentido com sync = true)
+    reverse: false,
+
+// retorno de chamada que é executado depois que a animação termina
+    callback: function () {}
+  },
+
+// sai das configurações de animação.
+  out: {
+    effect: 'hinge',
+    delayScale: 1.5,
+    delay: 50,
+    sync: false,
+    shuffle: false,
+    reverse: false,
+    callback: function () {}
+  },
+
+// retorno de chamada que é executado quando o textillate terminar
+  callback: function () {},
+
+// define o tipo de token para animar (tipos disponíveis: 'char' e 'word')
+  type: 'char'
+});
+
+	</script>
+  </body>
+</html>
